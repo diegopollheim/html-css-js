@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="css/global.css" />
+    <title>Document</title>
+
+    <style>
+      @font-face {
+        font-family: "Adventure";
+        src: url("/fontes/Adventure.otf");
+      }
+
+      * {
+        font-family: "Adventure";
+        list-style: none;
+      }
+
+      h1 {
+        margin: 30px 0;
+        text-align: center;
+        font-size: 45px;
+      }
+
+      .menu-superior {
+        padding: 30px 15px;
+        background-color: #000;
+        color: #fff;
+      }
+
+      .menu-superior ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 35px;
+      }
+
+      .menu-superior img {
+        width: 20px;
+      }
+
+      .menu-superior li {
+        transition: all 400ms;
+        cursor: pointer;
+        font-size: 22px;
+        border-bottom-width: 3px;
+        border-bottom: solid;
+        border-bottom-color: transparent;
+      }
+
+      .menu-superior li:hover {
+        /* text-decoration: underline; */
+        border-bottom-color: #00f100;
+        /* font-size: 110%; */
+        color: #00f100;
+      }
+
+      .container {
+        background-color: #eee;
+        padding: 25px;
+      }
+
+      .cards {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        height: 100vh;
+      }
+
+      .card {
+        background-color: #fff;
+        border-radius: 7px;
+        padding: 20px;
+        width: 200px;
+        height: fit-content;
+        border: 1px solid #74747487;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+
+      .card img {
+        width: 100%;
+      }
+
+      .card h3 {
+        font-size: 20px;
+        font-weight: 500;
+      }
+
+      .card p {
+        font-size: 16px;
+        margin-bottom: 16px;
+      }
+
+      .card hr {
+        margin: 16px 0 16px;
+      }
+
+      .card .content {
+        text-align: center;
+      }
+
+      .cards .card .content a {
+        font-weight: 400;
+        color: blue;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="menu-superior">
+      <ul>
+        <li>Home</li>
+        <li>Produtos</li>
+        <li onClick="temaDark()">Sobre</li>
+        <li onClick="toggleTema()"><img class="icone-tema" src="/imagens/lua.png" /></li>
+      </ul>
+    </header>
+
+    <div class="container">
+      <h1 id="titulo-pagina">Desenvolvimento WEB</h1>
+      <div class="cards">
+        <div class="card">
+          <div class="content">
+            <img src="/imagens/html-5.png" />
+            <hr />
+            <h3>HMTL 5</h3>
+            <p>Linguagem de marcação</p>
+            <a href="#">SAIBA MAIS</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="content">
+            <img src="/imagens/css-3.png" />
+            <hr />
+            <h3>CSS</h3>
+            <p>Estilização</p>
+            <a href="#">SAIBA MAIS</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="content">
+            <img src="/imagens/js-logo.png" />
+            <hr />
+            <h3>JavaScript</h3>
+            <p>Interação do usuário</p>
+            <a href="#">SAIBA MAIS</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let darkMode = false;
+
+      // cards principal
+      let pagina = document.querySelector(".container");
+      
+      let tituloPagina = document.querySelector("#titulo-pagina");
+      // Icone lua/sol
+      let iconeTema = document.querySelector(".icone-tema");
+      // Card produto
+      let card = document.querySelectorAll(".card");
+      function toggleTema() {
+        darkMode = !darkMode;
+
+        if (darkMode) {
+          iconeAtual = "/imagens/sol.png";
+          bgColor = "#121212";
+          bgColorCard = "#18181b";
+          fontColor = "#FFFFFF";
+        } else {
+          iconeAtual = "/imagens/lua.png";
+          bgColor = "#EEEEEE";
+          bgColorCard = "#FFFFFF";
+          fontColor = "#121212";
+        }
+
+        // Define a cor do fundo e o iconeAtual do tema
+        card[0].style.backgroundColor = bgColorCard;
+        card[1].style.backgroundColor = bgColorCard;
+        card[2].style.backgroundColor = bgColorCard;
+       
+        tituloPagina.style.color = darkMode ? '#fff' : '#121212';
+        pagina.style.backgroundColor = bgColor;
+        iconeTema.src = iconeAtual;
+      }
+    </script>
+    <script src="teste.js"></script>
+  </body>
+</html>
